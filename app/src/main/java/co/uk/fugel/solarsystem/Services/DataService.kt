@@ -7,7 +7,7 @@ object DataService {
     val planets = listOf(
         Planet("Mercury", "mercury"),
         Planet("Venus", "venus"),
-        Planet("Earth", "Mars"),
+        Planet("Earth", "earth"),
         Planet("Jupiter", "jupiter"),
         Planet("Saturn", "saturn"),
         Planet("Uranus", "uranus"),

@@ -2,4 +2,5 @@
     <string name="app_name">SolarSystem</string>
     <string name="background">background</string>
     <string name="the_solar_system">The Solar System</string>
+    <string name="planet_background">planet background</string>
 </resources>
