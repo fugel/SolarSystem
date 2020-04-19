@@ -19,18 +19,26 @@ class PlanetAdapter(context: Context, planets: List<Planet>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
         val planetView: View
+        val holder: ViewHolder
 
-        planetView = LayoutInflater.from(context).inflate(R.layout.planet_list_view, null)
+        if (convertView == null) {
+            planetView = LayoutInflater.from(context).inflate(R.layout.planet_list_view, null)
+            holder = ViewHolder()
+            holder.planetImage = planetView.findViewById(R.id.planetImage)
+            holder.planetName = planetView.findViewById(R.id.planetName)
 
-        val planetImage : ImageView = planetView.findViewById(R.id.planetImage)
-        val planetName : TextView = planetView.findViewById(R.id.planetName)
+            planetView.tag = holder
+        } else {
+            holder = convertView.tag as ViewHolder
+            planetView = convertView
+        }
 
         val planet = planets[position]
 
         val resourceId = context.resources.getIdentifier(planet.image, "drawable", context.packageName)
 
-        planetImage.setImageResource(resourceId)
-        planetName.text = planet.title
+        holder.planetImage?.setImageResource(resourceId)
+        holder.planetName?.text = planet.title
 
         return planetView
     }
@@ -45,5 +53,10 @@ class PlanetAdapter(context: Context, planets: List<Planet>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return planets.count()
+    }
+
+    private class ViewHolder {
+        var planetImage: ImageView? = null
+        var planetName: TextView? = null
     }
 }
