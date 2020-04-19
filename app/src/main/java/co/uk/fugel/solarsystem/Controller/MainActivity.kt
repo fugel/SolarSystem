@@ -3,6 +3,7 @@ package co.uk.fugel.solarsystem.Controller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import co.uk.fugel.solarsystem.Adapters.PlanetAdapter
 import co.uk.fugel.solarsystem.Model.Planet
 import co.uk.fugel.solarsystem.R
@@ -18,7 +19,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         adapter = PlanetAdapter(this, DataService.planets)
-
         planetListView.adapter = adapter
+
+        planetListView.setOnItemClickListener { parent, view, position, id ->
+            val planet = DataService.planets[position]
+            Toast.makeText(this, "You clicked ${planet.title}", Toast.LENGTH_SHORT).show()
+        }
     }
 }
