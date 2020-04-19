@@ -1,24 +1,17 @@
 package co.uk.fugel.solarsystem.Controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import co.uk.fugel.solarsystem.Adapters.PlanetAdapter
-import co.uk.fugel.solarsystem.Model.Planet
 import co.uk.fugel.solarsystem.R
 import co.uk.fugel.solarsystem.Services.DataService
-import co.uk.fugel.solarsystem.Services.EXTRA_PLANET_DETAILS
-import co.uk.fugel.solarsystem.Services.EXTRA_PLANET_NAME
-import co.uk.fugel.solarsystem.Services.EXTRA_PLANET_IMAGE
+import co.uk.fugel.solarsystem.Services.EXTRA_PLANET
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_planet.*
-import kotlinx.android.synthetic.main.planet_list_view.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var adapter : PlanetAdapter
+    private lateinit var adapter : PlanetAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +23,9 @@ class MainActivity : AppCompatActivity() {
         planetListView.setOnItemClickListener { parent, view, position, id ->
             val planet = DataService.planets[position]
 
-            val planetName = planet.title
-            val planetImage = planet.image
-            val planetDetails = planet.details
-
             val showPlanet = Intent(this, PlanetActivity::class.java)
-            showPlanet.putExtra(EXTRA_PLANET_NAME, planetName)
-            showPlanet.putExtra(EXTRA_PLANET_IMAGE, planetImage)
-            showPlanet.putExtra(EXTRA_PLANET_DETAILS, planetDetails)
+            showPlanet.putExtra(EXTRA_PLANET, planet)
+
             startActivity(showPlanet)
         }
     }
