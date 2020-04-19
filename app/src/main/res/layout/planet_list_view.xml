@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/planetImage"
+        android:id="@+id/planet_image"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -25,9 +25,9 @@
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/planetImage"
-        app:layout_constraintEnd_toEndOf="@+id/planetImage"
-        app:layout_constraintStart_toStartOf="@+id/planetImage"
+        app:layout_constraintBottom_toBottomOf="@+id/planet_image"
+        app:layout_constraintEnd_toEndOf="@+id/planet_image"
+        app:layout_constraintStart_toStartOf="@+id/planet_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="earth" />
 </androidx.constraintlayout.widget.ConstraintLayout>

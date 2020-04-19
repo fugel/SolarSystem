@@ -8,7 +8,7 @@
     tools:context=".Controller.MainActivity">
 
     <TextView
-        android:id="@+id/planetText"
+        android:id="@+id/planet_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -21,7 +21,7 @@
         tools:text="Earth" />
 
     <ImageView
-        android:id="@+id/planetImage"
+        android:id="@+id/planet_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/planet_background"
@@ -32,19 +32,20 @@
         tools:srcCompat="@drawable/earth" />
 
     <TextView
-        android:id="@+id/planetDetails"
+        android:id="@+id/planet_details"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:background="@color/textBackground"
         android:fontFamily="@font/roboto"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="1dp"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/planetText"
-        tools:text="wikipedia info" />
+        tools:text="@string/venus_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
