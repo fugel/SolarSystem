@@ -10,10 +10,7 @@ import android.widget.TextView
 import co.uk.fugel.solarsystem.Model.Planet
 import co.uk.fugel.solarsystem.R
 
-class PlanetAdapter(context: Context, planets: List<Planet>) : BaseAdapter() {
-
-    val context = context
-    val planets = planets
+class PlanetAdapter(private val context: Context, private val planets: List<Planet>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
@@ -24,7 +21,7 @@ class PlanetAdapter(context: Context, planets: List<Planet>) : BaseAdapter() {
             planetView = LayoutInflater.from(context).inflate(R.layout.planet_list_view, null)
             holder = ViewHolder()
             holder.planetImage = planetView.findViewById(R.id.planet_image)
-            holder.planetName = planetView.findViewById(R.id.planetName)
+            holder.planetName = planetView.findViewById(R.id.planet_name)
 
             planetView.tag = holder
         } else {
