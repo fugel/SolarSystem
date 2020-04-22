@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import co.uk.fugel.solarsystem.Model.Planet
 import co.uk.fugel.solarsystem.R
 
-class planetRecycleAdaptor(val context: Context, val planets: List<Planet>) : RecyclerView.Adapter<planetRecycleAdaptor.Holder>() {
+class planetRecycleAdaptor(private val context: Context, private val planets: List<Planet>, val itemClick: (Planet) -> Unit) : RecyclerView.Adapter<planetRecycleAdaptor.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.planet_list_view, parent, false)
 
-        return Holder(view)
+        return Holder(view, itemClick)
     }
 
     override fun getItemCount(): Int {
@@ -27,7 +27,7 @@ class planetRecycleAdaptor(val context: Context, val planets: List<Planet>) : Re
     }
 
 
-    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class Holder(itemView: View, itemClick: (Planet) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val planetName = itemView.findViewById<TextView>(R.id.planet_name)
         val planetImage = itemView.findViewById<ImageView>(R.id.planet_image)
 
@@ -37,6 +37,8 @@ class planetRecycleAdaptor(val context: Context, val planets: List<Planet>) : Re
 
             planetImage?.setImageResource(resourceId)
             planetName?.text = planet.title
+
+            itemView.setOnClickListener { itemClick(planet) }
         }
     }
 }
